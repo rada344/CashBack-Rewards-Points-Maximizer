@@ -34,7 +34,7 @@ class _HomeScreen extends StatelessWidget {
           Text.rich(TextSpan(text: "You're at ", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700), children: [TextSpan(text: 'Woolworths', style: TextStyle(color: AppColors.accent2))])),
           SizedBox(height: 4),
           Text('Based on your cards, we recommend using:', style: TextStyle(color: AppColors.text2, fontSize: 13)),
-          SizedBox(height: 16),
+          SizedBox(height: 15),
           _RecommendationChip(),
         ]),
       ),
