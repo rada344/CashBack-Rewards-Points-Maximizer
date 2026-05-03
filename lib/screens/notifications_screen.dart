@@ -5,7 +5,7 @@ class _NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(padding: const EdgeInsets.only(bottom: 100), children: const [
+    return ListView(padding: const EdgeInsets.only(bottom: 100), children: [
       _StatusBar(),
       Padding(padding: EdgeInsets.fromLTRB(20, 8, 20, 16), child: Text('Notifications', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700))),
       Padding(padding: EdgeInsets.symmetric(horizontal: 16), child: _NotificationCard(icon: '💳', title: 'New store detected', sub: "You've entered Woolworths Chatswood. Using Everyday Rewards Visa for best value.", time: 'Today 9:32 AM', color: AppColors.accent2, unread: true)),
