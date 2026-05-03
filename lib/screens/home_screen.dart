@@ -13,7 +13,7 @@ class _HomeScreen extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Good morning, $firstName 👋', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+          Text('Welcome, $firstName 👋', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
           const SizedBox(height: 2),
           const Text('Your wallet is ready', style: TextStyle(color: AppColors.text2)),
           const SizedBox(height: 12),
