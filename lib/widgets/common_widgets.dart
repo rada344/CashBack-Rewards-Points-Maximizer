@@ -3,7 +3,7 @@ part of '../ui.dart';
 class _Logo extends StatelessWidget {
   const _Logo();
   @override
-  Widget build(BuildContext context) => Container(width: 140, height: 140, alignment: Alignment.center, decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), gradient: const LinearGradient(colors: [AppColors.accent, AppColors.accent2]), boxShadow: [BoxShadow(color: AppColors.accent.withOpacity(.35), blurRadius: 32, offset: const Offset(0, 8))]), child: const Text('💳', style: TextStyle(fontSize: 100)));
+  Widget build(BuildContext context) => Container(width: 140, height: 140, alignment: Alignment.center, decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), gradient: const LinearGradient(colors: [AppColors.accent, AppColors.accent2]), boxShadow: [BoxShadow(color: AppColors.accent.withOpacity(.35), blurRadius: 32, offset: const Offset(0, 8))]), child: const Text('💳', style: TextStyle(fontSize: 130)));
 }
 
 class _PrimaryButton extends StatelessWidget {

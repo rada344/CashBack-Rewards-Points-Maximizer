@@ -13,7 +13,7 @@ class _SplashScreen extends StatelessWidget {
         Expanded(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
             _Logo(),
-            SizedBox(height: 100),
+            SizedBox(height: 24),
             Text('CardSmart', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700)),
             SizedBox(height: 8),
             Text('The smartest way to use your reward cards — at the right store, at the right time.', textAlign: TextAlign.center, style: TextStyle(color: AppColors.text2, height: 1.6)),
