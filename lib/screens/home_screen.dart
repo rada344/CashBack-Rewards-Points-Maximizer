@@ -17,7 +17,7 @@ class _HomeScreen extends StatelessWidget {
           const SizedBox(height: 2),
           const Text('Your wallet is ready', style: TextStyle(color: AppColors.text2)),
           const SizedBox(height: 12),
-          const _Pill(icon: '●', text: 'Woolworths Chatswood detected', color: Color.fromARGB(255, 7, 112, 108)255, 122, 186, 146)255, 4, 24, 12)),
+          const _Pill(icon: '●', text: 'Woolworths Chatswood detected', color: Color.fromARGB(255, 49, 29, 203), 122, 186, 146)255, 4, 24, 12)),
         ]),
       ),
       Container(
