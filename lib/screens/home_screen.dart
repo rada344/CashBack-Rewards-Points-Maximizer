@@ -13,16 +13,19 @@ class _HomeScreen extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Welcome, $firstName 👋', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+          // CHANGED: greeting style matches newer version
+          Text('Good morning, $firstName 👋', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
           const SizedBox(height: 2),
-          const Text('Your wallet is ready', style: TextStyle(color: AppColors.text2)),
+          const Text('Your smart wallet is ready', style: TextStyle(color: AppColors.text2)),
           const SizedBox(height: 12),
           const _Pill(
-  icon: '●',
-  text: 'Woolworths Chatswood detected',
-  color: Color.fromARGB(255, 122, 186, 146),
-),
+            icon: '●',
+            text: 'Woolworths Chatswood detected',
+            color: Color.fromARGB(255, 122, 186, 146),
+          ),
+        ]),
       ),
+      // CHANGED: recommendation card now shows score breakdown like newer version
       Container(
         margin: const EdgeInsets.all(16),
         padding: const EdgeInsets.all(20),
@@ -30,13 +33,17 @@ class _HomeScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(22),
           gradient: const LinearGradient(colors: [Color(0xFF1A1A2E), Color(0xFF16213E)]),
           border: Border.all(color: AppColors.accent.withOpacity(.3)),
+          boxShadow: [BoxShadow(color: AppColors.accent.withOpacity(.08), blurRadius: 24, offset: const Offset(0, 12))],
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
-          _Pill(icon: '⚡', text: 'Best Card Now', color: AppColors.accent2),
+          _Pill(icon: '⚡', text: '⚡ LIVE RECOMMENDATION', color: AppColors.accent2),
           SizedBox(height: 14),
-          Text.rich(TextSpan(text: "You're at ", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700), children: [TextSpan(text: 'Woolworths', style: TextStyle(color: AppColors.accent2))])),
+          Text.rich(TextSpan(text: "You're at ", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800), children: [TextSpan(text: 'Woolworths', style: TextStyle(color: AppColors.accent2))])),
           SizedBox(height: 4),
           Text('Based on your cards, we recommend using:', style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          // NEW: estimated value line matching newer version
+          SizedBox(height: 4),
+          Text('Estimated usable value: \$4.50', style: TextStyle(color: AppColors.text3, fontSize: 12)),
           SizedBox(height: 16),
           _RecommendationChip(),
         ]),
