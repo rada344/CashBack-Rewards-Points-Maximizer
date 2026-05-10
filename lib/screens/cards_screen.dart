@@ -13,11 +13,27 @@ class _CardsScreen extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('My Wallet', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+          const Text('My Wallet', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
           const SizedBox(height: 4),
           Text('${cards.length} reward cards', style: const TextStyle(color: AppColors.text2)),
-        ]),
+          const SizedBox(height: 10),
+   
+    Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: AppColors.accent.withOpacity(.10),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppColors.accent.withOpacity(.20)),
       ),
+      child: const Row(children: [
+        Icon(Icons.stars_rounded, color: AppColors.accent2, size: 18),
+        SizedBox(width: 8),
+        Text('Total points across all cards: ', style: TextStyle(color: AppColors.text2, fontSize: 13)),
+        Text('1,240 pts', style: TextStyle(color: AppColors.accent2, fontWeight: FontWeight.w800, fontSize: 13)),
+      ]),
+    ),
+  ]),
+),
       for (int i = 0; i < cards.length; i++) _WalletCard(card: cards[i], onTap: () => onDetail(i)),
       GestureDetector(
         onTap: onAdd,
