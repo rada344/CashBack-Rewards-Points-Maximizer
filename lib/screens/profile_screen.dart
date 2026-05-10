@@ -15,7 +15,7 @@ class _ProfileScreen extends StatelessWidget {
       Column(children: [
         Container(width: 80, height: 80, alignment: Alignment.center, decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), gradient: const LinearGradient(colors: [AppColors.accent, AppColors.accent2])), child: Text(initials, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700))),
         const SizedBox(height: 14),
-        Text(profile.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+        Text(profile.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),),
         Text(profile.email, style: const TextStyle(color: AppColors.text2)),
       ]),
       const SizedBox(height: 20),
