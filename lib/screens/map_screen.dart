@@ -18,8 +18,21 @@ class _MapScreen extends StatelessWidget {
       Container(
         height: 200,
         margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(color: AppColors.bg3, borderRadius: BorderRadius.circular(18), border: Border.all(color: Colors.white.withOpacity(.06))),
-        child: const Center(child: Column(mainAxisSize: MainAxisSize.min, children: [Text('●', style: TextStyle(fontSize: 38, color: AppColors.accent)), SizedBox(height: 8), Text('Chatswood, NSW', style: TextStyle(color: AppColors.text2))])),
+        decoration: BoxDecoration(
+          color: AppColors.bg3,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: AppColors.accent.withOpacity(.20)),
+    // NEW: subtle glow 
+          boxShadow: [BoxShadow(color: AppColors.accent.withOpacity(.06), blurRadius: 20, offset: const Offset(0, 8))],
+         ),
+         child: const Center(child: Column(mainAxisSize: MainAxisSize.min, children: [
+           Icon(Icons.location_on_rounded, size: 42, color: AppColors.accent),
+           SizedBox(height: 8),
+           Text('Chatswood, NSW', style: TextStyle(fontWeight: FontWeight.w700)),
+           SizedBox(height: 4),
+    // NEW: geofence active label
+           Text('Geofence active · 4 stores nearby', style: TextStyle(color: AppColors.text2, fontSize: 12)),
+         ])),
       ),
       _ToggleRow(icon: '📍', title: 'Geofencing', sub: 'Auto-detect stores', value: geofenceOn, onTap: onToggleGeofence, color: AppColors.green),
       _ToggleRow(icon: '🔔', title: 'Smart Notifications', sub: 'Alert on store entry only', value: notificationsOn, onTap: onToggleNotifications, color: AppColors.accent2),
