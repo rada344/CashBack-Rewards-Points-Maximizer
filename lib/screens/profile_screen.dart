@@ -12,26 +12,87 @@ class _ProfileScreen extends StatelessWidget {
     final initials = profile.name.split(' ').where((e) => e.isNotEmpty).map((e) => e[0]).join().toUpperCase().padRight(2, 'A').substring(0, 2);
     return ListView(padding: const EdgeInsets.only(bottom: 100), children: [
       const _StatusBar(),
-      Column(children: [
-        Container(width: 80, height: 80, alignment: Alignment.center, decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), gradient: const LinearGradient(colors: [AppColors.accent, AppColors.accent2])), child: Text(initials, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700))),
-        const SizedBox(height: 14),
-        Text(profile.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),),
-        Text(profile.email, style: const TextStyle(color: AppColors.text2)),
-      ]),
-      const SizedBox(height: 20),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Row(children: [
-          Expanded(child: _StatBox(value: '$cardCount', label: 'Saved Cards')),
-          const SizedBox(width: 10),
-          const Expanded(child: _StatBox(value: '1,240', label: 'Total Points')),
-        ]),
+      Column(
+  children: [
+    Container(
+      width: 80,
+      height: 80,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        gradient: const LinearGradient(
+          colors: [AppColors.accent, AppColors.accent2],
+        ),
       ),
-      const SizedBox(height: 20),
-      _SettingsSection(title: 'Account', rows: [_SettingsRow(icon: '👤', label: 'Edit Profile', color: AppColors.accent2, onTap: onEdit), const _SettingsRow(icon: '🔑', label: 'Change Password', color: AppColors.amber)]),
-      const _SettingsSection(title: 'Preferences', rows: [_SettingsRow(icon: '🔔', label: 'Notification Settings', color: AppColors.green), _SettingsRow(icon: '📍', label: 'Location Permissions', color: AppColors.accent2), _SettingsRow(icon: '🔐', label: 'Privacy & Security', color: AppColors.red)]),
-      const _SettingsSection(title: 'Support', rows: [_SettingsRow(icon: '❓', label: 'Help & FAQ', color: AppColors.amber), _SettingsRow(icon: '💬', label: 'Contact Support', color: AppColors.green)]),
-      Padding(padding: const EdgeInsets.symmetric(horizontal: 16), child: OutlinedButton(style: OutlinedButton.styleFrom(foregroundColor: AppColors.red, side: BorderSide(color: AppColors.red.withOpacity(.25)), padding: const EdgeInsets.all(15), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))), onPressed: onLogout, child: const Text('Log Out', style: TextStyle(fontWeight: FontWeight.w700)))),
+      child: Text(
+        initials,
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    ),
+    const SizedBox(height: 14),
+    Text(
+      profile.name,
+      style: const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+    Text(
+      profile.email,
+      style: const TextStyle(color: AppColors.text2),
+    ),
+  ],
+),
+      const SizedBox(height: 30),
+      _ProfileMenuItem(
+        icon: Icons.edit,
+        title: 'Edit Profile',
+        onTap: onEdit,
+      ),
+      _ProfileMenuItem(
+        icon: Icons.credit_card,
+        title: 'My Cards',
+        subtitle: '$cardCount cards',
+        onTap: () {},
+      ),
+      _ProfileMenuItem(
+        icon: Icons.logout,
+        title: 'Logout',
+        onTap: onLogout,
+      ),
     ]);
+  }
+}
+
+class _ProfileMenuItem extends StatelessWidget {
+  const _ProfileMenuItem({
+    Key? key,
+    required this.icon,
+    required this.title,
+    this.subtitle,
+    required this.onTap,
+  }) : super(key: key);
+
+  final IconData icon;
+  final String title;
+  final String? subtitle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon, color: AppColors.accent),
+      title: Text(
+        title,
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
+      subtitle: subtitle != null ? Text(subtitle!, style: const TextStyle(color: AppColors.text2)) : null,
+      onTap: onTap,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+      trailing: const Icon(Icons.chevron_right, color: AppColors.text2),
+    );
   }
 }
